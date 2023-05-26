@@ -6,3 +6,4 @@ build-image:
 
 run:
 	docker run play-kafka:latest
+

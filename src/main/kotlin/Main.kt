@@ -5,21 +5,22 @@ class MainCommand : CliktCommand() {
     override fun run() {}
 }
 
-class ProvideCommand : CliktCommand() {
+class ProduceCommand : CliktCommand() {
     override fun run() {
-        println("provide")
+        val producer = createProducer()
+        producer.produceMessages("my-topic")
     }
 }
 
 class ConsumeCommand : CliktCommand() {
     override fun run() {
-        println("consume")
+        createConsumer().consumeMessages("my-topic")
     }
 }
 
 fun main(args: Array<String>) = MainCommand()
     .subcommands(
-        ProvideCommand(),
+        ProduceCommand(),
         ConsumeCommand(),
     )
     .main(args)

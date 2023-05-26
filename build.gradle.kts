@@ -1,10 +1,6 @@
-import groovy.xml.dom.DOMCategory.attributes
-
-// import groovy.xml.dom.DOMCategory.attributes
 
 plugins {
     kotlin("jvm") version "1.8.21"
-    // id("java-library")
     application
 }
 
@@ -19,6 +15,10 @@ dependencies {
     testImplementation(kotlin("test"))
 
     implementation("com.github.ajalt.clikt:clikt:3.5.2")
+
+    val kafkaVersion = "2.6.3"
+    implementation("org.apache.kafka:kafka-clients:$kafkaVersion")
+    implementation("org.apache.kafka:connect-runtime:$kafkaVersion")
 }
 
 tasks.withType<Jar> {
