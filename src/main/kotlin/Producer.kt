@@ -6,6 +6,7 @@ import java.util.Properties
 
 fun createProducer(): Producer<String, String> {
     val props = Properties()
+
     props["bootstrap.servers"] = "localhost:29092"
     props["acks"] = "all"
     props["retries"] = 0
